@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Sample.Brand.Models;
@@ -15,6 +16,7 @@ namespace Sample.Brand.Controllers
 		{
 			_dbContext = dbContext;
 		}
+		[Authorize]
 		[HttpGet]
 		public async Task<ActionResult<IEnumerable<Sample.Brand.Models.Brand>>> GetBrands()
 		{
